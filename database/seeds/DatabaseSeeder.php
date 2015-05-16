@@ -13,12 +13,15 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-		
+
 		App\Course::truncate();
+		App\User::truncate();
 
 		Model::unguard();
 
 		$this->call('CoursesTableSeeder');
+		$this->call('UsersTableSeeder');
+		$this->call('CourseUserTableSeeder');
 	}
 
 }
