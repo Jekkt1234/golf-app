@@ -38,8 +38,19 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
 	 */
 	public function courses(){
-		return $this->BelongsToMany('\App\Course');
+		return $this->belongsToMany('\App\Course');
 	}
 
+
+	/**
+	 *	Get the meetings associated with the given user.
+	 *
+	 *	
+	 *	@return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
+
+	public function meetings(){
+		return $this->belongsToMany('App\Meeting');
+	}
 
 }

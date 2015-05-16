@@ -20,7 +20,19 @@ class Course extends Model {
 	*/
 
 	public function users(){
-		return $this->BelongsToMany('App\User');
+		return $this->belongsToMany('App\User');
+	}
+
+
+	/**
+	*	Get the meetings scheduled for the given course.
+	*
+	*	
+	*	@return \Illuminate\Database\Eloquent\Relations\HasMany
+	*/
+
+	public function meetings(){
+		return $this->hasMany('App\Meeting');
 	}
 
 }
